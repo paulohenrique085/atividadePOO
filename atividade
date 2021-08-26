@@ -1,0 +1,38 @@
+
+public class Main {
+		public static void main(String[] args) {
+			Conta cp = new ContaPoupanca();
+			cp.setSaldo(3500);
+			cp.imprimeExtrato();
+
+		}
+	}
+
+abstract class Conta {
+
+	private double saldo;
+
+	public void setSaldo (double saldo) {
+		this.saldo = saldo;
+	}
+
+	public double getSaldo() {
+		return this.saldo;
+	}
+	public abstract void imprimeExtrato();
+}
+
+public class ContaPoupanca extends Conta {
+
+	@Override
+	public void imprimeExtrato() {
+		System.out.println("### Extrato da Conta ###");
+
+		System.out.println("Saldo: "+ getSaldo());
+	}
+}
+interface InterConta {
+		void depositar(double valor);
+		void sacar(double valor);
+		double getSaldo();
+	}
